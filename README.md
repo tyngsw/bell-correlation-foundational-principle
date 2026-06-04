@@ -141,4 +141,4 @@ T. Yanagisawa — Independent Researcher, Japan.
 
 ## License
 
-To be added.
+Released under the MIT License. See [`LICENSE`](LICENSE) for details.

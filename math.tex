@@ -1,0 +1,248 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\usepackage{xr}
+\externaldocument[I-]{physics}
+
+\title{Bell Correlation as a Foundational Principle\\
+\large Part II --- Mathematics: Standard-Part Measurement, Spectral Geometry, and the Mass Gap}
+\author{T. Yanagisawa}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This part develops the mathematical backbone behind the physics reconstruction
+(Part~I): the standard-part map $\st$ as the universal model of measurement via
+non-standard analysis, the spectral/MDS recovery of geometry from the correlation
+matrix, and the mass-gap argument from the Bell-derived transfer operator. The
+positivity of the gap is the mathematical result; the value $\LamQCD$ enters as an
+empirical input. The transfer-operator argument is presented under the explicit
+hypothesis~(H1) identifying the Bell two-point function with the Euclidean
+Yang--Mills two-point function.
+\end{abstract}
+
+\tableofcontents
+
+% ======================================================================
+\section{Related work and positioning}\label{sec:math-related}
+The use of nonstandard analysis and the standard-part map in mathematical physics is
+established: hyperfinite and hypercontinuous methods~\cite{albeverio}, Yamashita's
+hyperfinite formalism of quantum fields~\cite{yamashita}, and models employing a
+hyperfinite real axis with infinitesimal lattice spacing as the support of physical
+phenomena~\cite{nsa-qm}. Our graded measurement $M(f)=\st(f/\varepsilon^{\operatorname{ord}(f)})$,
+with distinct infinitesimal orders for space and time ($\varepsilon^2>0$), follows this
+lineage; the novelty is its use as the \emph{universal model of Bell measurement} feeding
+the correlation-to-geometry construction, and the observation (\S\ref{sec:st}) that $\st$
+constrains neither the spatial dimension nor the topology.
+
+On the relativistic-causality side, Finberg~\cite{finberg} proves, within locally
+covariant AQFT, that Bell local causality is incompatible with diffeomorphism
+covariance---any screening-off completion requires preferred foliations or non-covariant
+beables. That result \emph{assumes} spacetime and shows Bell correlations resist a
+covariant classical-causal embedding; our work runs in the opposite direction, taking
+Bell correlations as primary and \emph{outputting} a spacetime whose preferred time
+arises from covering~II. The two are complementary: Finberg's preferred-foliation
+requirement is the time-asymmetry that covering~II supplies constructively.
+
+% ======================================================================
+\section{Measurement as the standard-part map}\label{sec:st}
+\established\ (foundational, README \S2c)
+
+\begin{definition}[Graded measurement]\label{def:st}
+Let $\varepsilon>0$ be a positive infinitesimal lattice spacing (in the nonstandard sense,
+with $\varepsilon^{2}>0$ still infinitesimal). For a nonstandard quantity $f$ of
+infinitesimal order $\operatorname{ord}(f)$, the \emph{graded measurement} is
+\begin{equation}
+M(f)=\st\!\left(\frac{f}{\varepsilon^{\operatorname{ord}(f)}}\right),
+\label{eq:graded}
+\end{equation}
+where $\st$ is the standard-part map sending a limited hyperreal to the unique real
+infinitely close to it. Bell measurement is one instance of this single operation.
+\end{definition}
+
+\begin{proposition}[Automatic exclusion of non-near-standard quantities]\label{prop:exclude}
+At settings where the correlation vanishes ($\cos2\theta=0$), the entanglement distance
+$\dent=-\log|\Cmat|$ is unlimited and therefore has no standard part; such points are
+automatically excluded from the measured geometry. The excluded set has measure zero.
+\end{proposition}
+
+\begin{proof}
+If $|\Cmat|\to0$ then $-\log|\Cmat|\to+\infty$, an unlimited hyperreal, which lies outside
+the domain of $\st$ and so is not assigned any real value by~\eqref{eq:graded}. The
+vanishing of $\cos2\theta$ occurs on a discrete set of angles, of Lebesgue measure zero in
+the setting space.
+\end{proof}
+
+\begin{remark}[$\st$ fixes neither dimension nor topology]\label{rem:st-limits}
+The standard-part map constrains neither the number of independent settings $p$ nor the
+choice of covering. It is definable identically whether the support is $\Scirc$ or its
+cover $\RR$, and places no bound on $p$ (notebook~17, \S\S17.9--17.11). Hence the spatial
+dimension and the time topology lie \emph{upstream} of $\st$; this is the measurement-side
+counterpart of the external-input status of dimension three established in Part~I,
+\S\ref{I-sec:dim}.
+\end{remark}
+
+% ======================================================================
+\section{Spectral recovery of geometry (MDS)}\label{sec:mds}
+\established\ (notebooks 01, 04, 16, 18)
+
+\begin{definition}[Correlation matrix and centred Gram]\label{def:gram}
+Given pairwise distances $D_{ij}=\dent(\theta_i,\theta_j)$, form the squared-distance
+matrix $D^{(2)}$ with entries $D_{ij}^2$ and the centred Gram matrix
+\begin{equation}
+B=-\tfrac12\,J\,D^{(2)}\,J,\qquad J=I-\tfrac1m\mathbf{1}\mathbf{1}^{\top},
+\label{eq:gram}
+\end{equation}
+where $m$ is the number of settings. The positive eigenvalues of $B$ and their
+eigenvectors give the MDS coordinates of the emergent geometry.
+\end{definition}
+
+\begin{proposition}[Additive decomposition of distance]\label{prop:additive}
+For $p$ independent angular settings, the setting space is the torus $\Tcirc^{p}$ and the
+squared distance decomposes additively,
+$\dent^2=\sum_{c=1}^{p}\dent_c^{2}$, over the $p$ axes. The intrinsic dimension of the MDS
+image is $p$ and its embedding dimension is $2p$.
+\end{proposition}
+
+\begin{proof}
+Independent settings contribute independent angular factors, each an $\Scirc$ with its own
+$\cos2$ correlation, so distances add in quadrature (notebook~4). Each $\Scirc$ requires
+two MDS coordinates (Part~I, Lemma~\ref{I-lem:rank2}) but is intrinsically one-dimensional;
+over $p$ axes this gives embedding dimension $2p$ and intrinsic dimension $p$.
+\end{proof}
+
+\begin{proposition}[Recovery of $\Tcirc^{3}$]\label{prop:t3}
+For $p=3$, MDS of $|\Cmat|$ recovers an image of embedding dimension six and intrinsic
+dimension three, with the three axis subspaces mutually orthogonal.
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:additive} with $p=3$, the leading spectrum of $B$ consists of six
+equal dominant eigenvalues (three axes $\times$ two coordinates) with a sharp drop to the
+seventh, identifying intrinsic dimension three. Computing the principal angles between the
+two-dimensional subspaces of distinct axes yields zero overlap, confirming orthogonality
+(notebook~18, part~a).
+\end{proof}
+
+% ======================================================================
+\section{The transfer operator and the mass gap}\label{sec:gap}
+\conditional\ under hypothesis (H1) (README \S3)
+
+\begin{definition}[Bell transfer operator]\label{def:transfer}
+Let $T$ be the transfer operator whose integral kernel is the Bell two-point function
+derived from~\eqref{I-eq:bell} on the (continuous, hyperfinite) space of measurement
+settings. Under hypothesis~(H1) below, $T$ is identified with the Euclidean Yang--Mills
+transfer operator.
+\end{definition}
+
+\paragraph{Hypothesis (H1).} The Bell two-point function coincides with the Euclidean
+Yang--Mills two-point function on the setting space. All results in this section are stated
+under~(H1); we do not claim~(H1) itself.
+
+\begin{theorem}[Strict positivity; Jentzsch--Perron]\label{thm:jp}
+The kernel of $T$ is strictly positive; consequently its largest eigenvalue is simple and
+its eigenvector strictly positive, and $T\ge 1>0$.
+\end{theorem}
+
+\begin{proof}
+The kernel built from $|\Cmat|=|\cos2\theta|/(2N)$ is positive on the near-standard domain
+(Proposition~\ref{prop:exclude} removing the measure-zero singular set). The
+Jentzsch--Perron theorem---the integral-operator analogue of Perron--Frobenius---then gives
+a simple, isolated largest eigenvalue with positive eigenfunction. The transfer principle
+of nonstandard analysis transports this from the hyperfinite to the standard setting.
+\end{proof}
+
+\begin{theorem}[Mass gap positivity]\label{thm:gap}
+\conditional\ Under hypothesis~(H1), the spectral gap of $T$ yields a positive mass gap
+\begin{equation}
+\Delta=\frac{\hbar c}{\xi}=\LamQCD>0 .
+\end{equation}
+The positivity $\Delta>0$ is the mathematical content; the numerical value $\LamQCD$ enters
+only through the empirical correlation length $\xi$. The argument is lattice-independent,
+living on the continuous/hyperfinite setting space rather than a spacetime lattice.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:jp} the largest eigenvalue $\lambda_0$ is simple and separated from the
+remainder of the spectrum by a finite gap; the mass gap is $\Delta=-\log(\lambda_1/\lambda_0)
+\cdot(\hbar c/\xi)>0$ where $\lambda_1<\lambda_0$ is the next eigenvalue. Strict positivity
+of the spectral gap is the mathematical assertion; identifying the prefactor with $\LamQCD$
+uses the empirical $\xi$ and~(H1).
+\end{proof}
+
+\begin{remark}[What is and is not claimed]\label{rem:gap-claim}
+Only the positivity $\Delta>0$ is derived. The value $\LamQCD\approx200$~MeV is an
+empirical input, not a prediction, and the numerical factor $\approx7.5$ between $\LamQCD$
+and the lightest glueball mass remains open.
+\end{remark}
+
+% ======================================================================
+\section{$SU(3)$ gauge structure}\label{sec:su3}
+\conditional
+
+From the colour-singlet qutrit correlation $\Eang=\cos2\theta/6$ (i.e.~\eqref{I-eq:bell}
+with $N=3$) one is led towards a Wilson action for an $SU(3)$ gauge structure. This
+direction is recorded as conditional: the precise boundary between what is established and
+what is in progress---in particular the derivation of the Wilson action from the
+correlation rather than its postulation---requires further work and is deferred to the
+notebooks. \deferred
+
+% ======================================================================
+\section{Climbing map from a minimal principle}\label{sec:climb}
+\established\ (notebook 21)
+
+\begin{proposition}[Three additional postulates]\label{prop:climb}
+From the minimal principle
+\[
+\textbf{P0:}\quad\text{there exists a Bell-inequality-violating correlation } C(a,b),
+\]
+the full form $\Eang=\cos2\theta/(2N)$ is reached by three additional postulates:
+\textbf{A1} (homogeneity: $C$ depends only on the relative angle $a-b$), \textbf{A2}
+(quantum correlation: saturation of the Tsirelson bound $2\sqrt2$, equivalently a Hilbert
+space structure), and \textbf{A3} ($N=3$ QCD identification). Each step is checked by a
+CHSH computation.
+\end{proposition}
+
+\begin{proof}[Justification]
+P0 fixes only that $C$ is a setting-pair function with a CHSH value exceeding $2$;
+inhomogeneous correlations can still violate CHSH, so A1 is a genuine added postulate.
+Among homogeneous correlations, saturating the Tsirelson bound $|S|=2\sqrt2$ singles out
+$E=\cos(\text{relative angle})$, giving A2; the doubling to $\cos2\theta$ is the spin
+projective (two-valued) structure carried by A2. Finally A3 fixes the amplitude $1/(2N)$
+with $N=3$. The CHSH values at each stage are verified numerically (notebook~21).
+\end{proof}
+
+\begin{remark}[Two independent axes]\label{rem:axes}
+The ascent to $\cos2\theta$ (call it axis~I) and the dimension/topology of physical space
+(axis~II) are independent: dimension three appears at no stage of axis~I (notebook~21).
+This is the Part~II statement of the orthogonality recorded in Part~I,
+Rmk.~\ref{I-rem:orthogonal}: $\cos2\theta$ can be climbed without ever fixing the spatial
+dimension, which must therefore be supplied separately.
+\end{remark}
+
+% ======================================================================
+\section{Summary and open problems}\label{sec:math-summary}
+The mathematical backbone comprises: the standard-part measurement theory
+(\S\ref{sec:st}), under which Bell measurement is a single $\st$ operation that
+automatically excludes non-near-standard quantities yet fixes neither dimension nor
+topology; the spectral/MDS recovery of geometry (\S\ref{sec:mds}), giving $\Tcirc^{3}$ with
+orthogonal axes; and the climbing map (\S\ref{sec:climb}), reducing $\cos2\theta$ to the
+three postulates A1--A3. The mass-gap positivity (\S\ref{sec:gap}) and the $SU(3)$ Wilson
+structure (\S\ref{sec:su3}) are conditional, the former on hypothesis~(H1).
+
+Open problems: whether A2 (quantum correlation) descends from a more minimal
+information-theoretic axiom; the upstream origin of spatial dimension three, independent of
+$\cos2\theta$ (axis~II of Rmk.~\ref{rem:axes}); and the numerical factor $\approx7.5$
+between $\LamQCD$ and the lightest glueball mass.
+
+% ======================================================================
+\begin{thebibliography}{9}
+\bibitem{albeverio} S. Albeverio et al., \emph{Nonstandard Methods in Stochastic Analysis and Mathematical Physics}, Academic Press (1986).
+\bibitem{yamashita} H. Yamashita, \emph{Nonstandard methods in quantum field theory I: a hyperfinite formalism of scalar fields}, Int. J. Theor. Phys. \textbf{41}, 511 (2002).
+\bibitem{nsa-qm} \emph{A realistic model for completing quantum mechanics} (nonstandard hyperfinite real axis), arXiv:2104.12701 (2021).
+\bibitem{finberg} J. S. Finberg, \emph{Bell nonlocality as a covariance obstruction in locally covariant quantum field theory}, arXiv:2512.18603 (2025).
+\bibitem{karlsson} A. Karlsson, \emph{Space-time emergence from individual interactions}, arXiv:1806.05710 (2018).
+\end{thebibliography}
+
+\end{document}

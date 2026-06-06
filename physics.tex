@@ -1,0 +1,395 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\usepackage{xr}
+\externaldocument[II-]{math}
+
+\title{Bell Correlation as a Foundational Principle\\
+\large Part I --- Physics: Emergent Spacetime from Bell Correlations}
+\author{T. Yanagisawa}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We adopt the experimentally established Bell correlations as a foundational
+principle and reconstruct emergent spacetime geometry. Taking
+$\Eang(\theta)=\cos 2\theta/(2N)$ as the entry point, we show analytically that
+the bare framework (correlation $\to$ distance $\to$ multidimensional scaling)
+cannot yield a non-compact or single time direction (the \emph{main no-go}), and
+that a single topological additional principle (covering~II) generates a single,
+non-compact time. We exhibit the minimal $\RR\times\Tcirc^{3}$ spacetime model and
+show that continuous rotational $SO(3)$ symmetry emerges at the metric level in the
+continuum limit, while the spatial dimension three remains an external input.
+\end{abstract}
+
+\tableofcontents
+
+% ======================================================================
+\section{Related work and positioning}\label{sec:related}
+The idea that spacetime geometry emerges from quantum entanglement or correlations
+is well established: the ``entanglement = geometry'' program of Van Raamsdonk~\cite{vanraamsdonk},
+Swingle's tensor networks~\cite{swingle}, the Ryu--Takayanagi proposal, Jacobson's
+derivation of Einstein's equations from entanglement equilibrium~\cite{jacobson}, and
+the It-from-Qubit program. Our correlation$\to$distance$\to$MDS construction sits in
+this lineage but is distinguished by fixing a \emph{specific} correlation
+$\cos2\theta$ as first principle and proving an analytic no-go.
+
+Two works are closest and require careful delineation.
+
+\paragraph{Milburn (2025)~\cite{milburn}.} Argues that Bell violations are already
+evidence for the non-classical causal structure of flat spacetime ``seen from the
+inside,'' and that an embedded agent learns geometry from internal measurements (the
+``Ringworld'' toy model learns $T(\theta)$ from head-angle settings). This shares our
+inside-out, settings-as-vertices stance, but is qualitative: there is no
+distance kernel, no MDS metric, no analytic no-go, no covering principle, and no
+standard-part measurement. Conversely, Milburn's single-agent retrocausal reading is
+absent here.
+
+\paragraph{Karlsson (2018)~\cite{karlsson}.} Closest of all. Eq.~(10) there gives the
+same $\cos2\varphi=\mathrm{Re}\,e^{2i\varphi}$, $\sin2\varphi=\mathrm{Im}\,e^{2i\varphi}$
+decomposition and the same ``$\pi$-period $\to$ orthogonal axes at $\varphi\in\{0,\pi/4\}$,''
+and Eq.~(11) relates 2d and 3d correlations by period doubling $\pi\to2\pi$, arguing
+spin-$1/2$ is the unique $D{=}4$ candidate for emergent spatial orientation.
+\emph{We acknowledge that the idea ``$\cos2\theta$ yields spatial structure'' is not new.}
+Our contribution is the constructive/quantitative development that Karlsson leaves at
+the conceptual stage, made precise in \S\ref{sec:nogo}--\S\ref{sec:dim}:
+(i) explicit metric recovery via $\dent=-\log|\Cmat|$ and MDS;
+(ii) the analytic no-go (Thm.~\ref{thm:nogo});
+(iii) covering~II as a \emph{universal cover} $\Scirc\to\RR$ (period $\pi\to\infty$,
+non-compact \emph{time}), which is distinct from Karlsson's finite period doubling
+$\pi\to2\pi$ (compact, a 2d/3d \emph{space} duality)---see Rmk.~\ref{rem:karlsson};
+(iv) the \emph{negative} determination that dimension three is independent of
+$\cos2\theta$ (Thm.~\ref{thm:dim}), opposite in direction to Karlsson's positive
+claim; and (v) the standard-part measurement theory (Part~II).
+
+% ======================================================================
+\section{Foundational principle and method}\label{sec:principle}
+\established
+
+We adopt the experimentally established violation of Bell inequalities as a first
+principle. The pioneering measurements of Freedman and Clauser~\cite{freedman-clauser},
+the time-varying-analyzer experiments of Aspect and
+collaborators~\cite{aspect1982,aspect1982tv}, and the strict-locality experiment of
+Weihs, Zeilinger and collaborators~\cite{weihs-zeilinger}---recognised by the 2022
+Nobel Prize in Physics---establish that nature exhibits correlations no local
+hidden-variable theory can reproduce. Rather than seeking to explain these correlations,
+we take them as the empirical bedrock and ask what geometry they generate.
+
+Concretely, we fix the two-setting correlation
+\begin{equation}
+\Eang(\theta)=\frac{\cos 2\theta}{2N},\qquad N=3,
+\label{eq:bell}
+\end{equation}
+where $\theta$ is the relative angle between two measurement settings. The value $N=3$ is
+an \emph{identification} with the colour degree of freedom of QCD, not a derivation; we
+never claim to derive it. The functional form $\cos2\theta$ is, in the present (maximal)
+working stance, part of the adopted principle; Part~II, \S\ref{II-sec:climb} examines how far
+it can itself be climbed from a more minimal principle.
+
+The method rests on three pillars. First, the empirical correlation is converted into a
+metric quantity through the entanglement distance of Definition~\ref{def:dist}. Second,
+the graph on which we work has \emph{measurement settings} as its vertices and
+correlation/distance values as its edge data; it is the support of the correlation
+matrix, \emph{not} a pre-given lattice of space points. Spatial geometry is an
+\emph{output}, obtained by multidimensional scaling (MDS) of the correlation matrix
+(\S\ref{sec:rxt3}), never an input. Third, all measurement is modelled as the
+standard-part map $\st$ of nonstandard analysis (Part~II, \S\ref{II-sec:st}); Bell
+measurement is one instance of this single operation.
+
+\begin{principle}[Bell correlation]\label{prin:bell}
+There exists a measurable two-party correlation given by~\eqref{eq:bell}, grounded in the
+experimental violations~\cite{freedman-clauser,aspect1982,aspect1982tv,weihs-zeilinger}.
+It is taken as given: neither derived nor modelled.
+\end{principle}
+
+\begin{definition}[Entanglement distance]\label{def:dist}
+For a correlation value $\Cmat$, the \emph{entanglement distance} is
+$\dent=-\log|\Cmat|$. Applied to~\eqref{eq:bell}, this converts the empirical correlation
+between two settings into a non-negative metric quantity, diverging precisely where the
+correlation vanishes.
+\end{definition}
+
+% ======================================================================
+\section{The main no-go theorem}\label{sec:nogo}
+\established\ (notebooks 10--11; analytic backing notebook 22)
+
+The central negative result is that the bare framework of \S\ref{sec:principle}---turning
+the correlation~\eqref{eq:bell} into a distance and applying MDS---cannot by itself
+produce a non-compact direction or a single time. We isolate three premises, each an
+analytic consequence of $\cos2\theta$, and show they jointly forbid both.
+
+\begin{lemma}[Rank-two kernel]\label{lem:rank2}
+The kernel $\Cmat(\theta_i,\theta_j)=\cos 2(\theta_i-\theta_j)/(2N)$ factorises, by the
+addition formula, as
+\begin{equation}
+\Cmat(\theta_i,\theta_j)=\sum_{k=1}^{2}\varphi_k(\theta_i)\,\varphi_k(\theta_j),
+\qquad \varphi=\frac{1}{\sqrt{2N}}\,(\cos2\theta,\;\sin2\theta).
+\label{eq:factor}
+\end{equation}
+Hence the integral kernel has rank exactly two.
+\end{lemma}
+
+\begin{proof}
+Expand $\cos2(\theta_i-\theta_j)=\cos2\theta_i\cos2\theta_j+\sin2\theta_i\sin2\theta_j$
+and divide by $2N$; this is~\eqref{eq:factor}. The two functions $\cos2\theta,\sin2\theta$
+are linearly independent, so the rank is exactly two, not merely at most two.
+\end{proof}
+
+\begin{lemma}[Constant norm $\Rightarrow$ bounded image]\label{lem:bounded}
+The feature map $u(\theta)=\varphi(\theta)$ of~\eqref{eq:factor} satisfies
+$|u(\theta)|^{2}=1/(2N)$, independent of $\theta$; its image lies on a circle of radius
+$1/\sqrt{2N}$ and is therefore bounded and compact.
+\end{lemma}
+
+\begin{proof}
+$|u(\theta)|^2=(\cos^2 2\theta+\sin^2 2\theta)/(2N)=1/(2N)$. We emphasise the logical
+separation: Lemma~\ref{lem:rank2} gives only that the image lies in a two-dimensional
+subspace (a priori an arbitrary planar curve); the stronger conclusion ``circle'' follows
+from the constant-norm identity $\cos^2+\sin^2=1$, a property specific to the form
+$\cos2\theta$, not a consequence of rank two alone. For the no-go, boundedness is what is
+needed, and boundedness follows from constant norm regardless of the precise shape.
+\end{proof}
+
+\begin{lemma}[Period $\pi$ $\Rightarrow$ univalent closed curve]\label{lem:period}
+The feature map is $\pi$-periodic, $u(\theta+\pi)=u(\theta)$, so its image is a univalent
+closed curve, topologically $\Scirc$.
+\end{lemma}
+
+\begin{proof}
+$\cos2(\theta+\pi)=\cos(2\theta+2\pi)=\cos2\theta$, and likewise for $\sin$. Thus
+$u$ factors through the quotient $\RR/\pi\ZZ\cong\Scirc$, tracing a closed loop once.
+\end{proof}
+
+\begin{theorem}[Main no-go]\label{thm:nogo}
+Within the bare framework (correlation $\to$ distance $\to$ MDS) applied to~\eqref{eq:bell},
+the emergent geometry admits neither a non-compact direction nor a global single time
+direction.
+\end{theorem}
+
+\begin{proof}
+By Lemmas~\ref{lem:rank2} and~\ref{lem:bounded} (premises P1, P2) the MDS image is
+contained in the bounded circle of radius $1/\sqrt{2N}$; a bounded image cannot host a
+non-compact (unbounded, $\RR$-like) direction. By Lemma~\ref{lem:period} (premise P3) the
+image is a univalent closed curve $\Scirc$; assigning an orientation to a closed loop does
+not yield a totally ordered, unbounded time axis, and the periodicity returns the curve to
+its start, so no global single time direction exists. Both desired features are therefore
+excluded. \qedhere
+\end{proof}
+
+The three premises P1 (rank two), P2 (constant norm), P3 (period $\pi$) each follow
+analytically from $\cos2\theta$; the numerical confirmations of notebooks~10--11 are thus
+underwritten by closed-form algebra (notebook~22).
+
+% ======================================================================
+\section{Covering principle II: emergence of time}\label{sec:covering}
+\established\ (notebook 13)
+
+The no-go theorem shows an additional principle is unavoidable. We adopt a single
+topological one, which breaks exactly the premise P3 of Theorem~\ref{thm:nogo} while
+preserving P1 and P2.
+
+\begin{principle}[Covering II]\label{prin:cover}
+Take the support of the setting space to be not the circle $\Scirc$ but its universal
+cover $\RR$, and identify the covering coordinate $t$ (with $\pi:\RR\to\Scirc$,
+$t\mapsto t \bmod \pi$) with time.
+\end{principle}
+
+\begin{proposition}[Single non-compact time]\label{prop:time}
+Under Covering~II the time direction is one-dimensional, totally ordered, and non-compact.
+\end{proposition}
+
+\begin{proof}
+The universal cover of $\Scirc$ is $\RR$, unique up to isomorphism, with deck
+transformation group $\ZZ$. The covering coordinate $t$ ranges over all of $\RR$: it is
+totally ordered and unbounded, hence non-compact, and constitutes a single
+($1$-dimensional) direction. No continuous parameter is introduced---the deck group is
+discrete and the fundamental domain has width fixed by the period of~\eqref{eq:bell}---so
+the construction does not smuggle in a tunable infinitesimal (it avoids the ``$\varepsilon$
+trap'' discussed in notebook~13).
+\end{proof}
+
+\begin{proposition}[Causal transitivity]\label{prop:causal}
+The order relation $t_i<t_j$ on the covering coordinate is transitive, yielding a global
+causal order.
+\end{proposition}
+
+\begin{proof}
+The relation is the standard total order on $\RR$, which is transitive. This resolves,
+at the structural level, the failure of transitivity encountered when one attempts to
+read causal order from the sign of $\cos2\theta$ on the circle (notebook~9, route L-A),
+where periodic sign reversals destroy any global order.
+\end{proof}
+
+\begin{remark}[Covering~II breaks only P3]\label{rem:p3}
+Covering~II leaves the rank-two structure (P1) and the bounded, constant-norm spatial
+part (P2) intact: the spatial sector is still the MDS of $|\Cmat|$, an $\Scirc$. Only the
+univalence/periodicity premise P3 is removed, and only in the lifted (time) direction.
+Thus the operation is the minimal departure from the bare framework consistent with the
+no-go analysis (notebook~22, \S22.6).
+\end{remark}
+
+\begin{remark}[Covering~II vs.\ Karlsson's period doubling]\label{rem:karlsson}
+Covering~II ($\Scirc\to\RR$, period $\pi\to\infty$, non-compact) must not be conflated
+with Karlsson's period doubling~\cite{karlsson} ($\pi\to2\pi$, compact). Both alter the
+period, but the targets differ decisively: Karlsson's is a finite doubling internal to
+\emph{space} (a 2d/3d correlation duality, remaining a compact $\Scirc$), whereas
+covering~II is the universal cover producing non-compact \emph{time}. The surface
+resemblance (``changing the period'') hides a difference in topology, role, and
+output (notebook~23, \S23.3).
+\end{remark}
+
+% ======================================================================
+\section{The minimal spacetime model $\RR\times\Tcirc^{3}$}\label{sec:rxt3}
+\established\ (notebooks 16, 18)
+
+Combining Covering~II with $p$ independent angular settings gives a minimal spacetime.
+With $p=4$ (three spatial settings plus the lifted time direction; see \S\ref{sec:dim} for
+the status of $p=4$) the model is $\RR\times\Tcirc^{3}$.
+
+\begin{proposition}[Separate construction of time and space]\label{prop:sep}
+Time and space must be built separately: the time direction is the covering coordinate
+(timelike, dimension exactly one), and the spatial geometry is the MDS of $|\Cmat|$ over
+the three angular settings, yielding $\Tcirc^{3}$ of intrinsic dimension three.
+\end{proposition}
+
+\begin{proof}
+Attempting to embed a single mixed squared interval
+$ds^2=-dt^2+\sum d_{\text{space}}^2$ at once produces, via the negative-definite part, a
+spurious multiplicity of timelike directions (notebook~16, \S16.1). Constructing time
+directly from the covering coordinate makes the timelike dimension exactly one by
+construction, while the spatial distances, decomposing additively over the three settings
+(Part~II, Prop.~\ref{II-prop:additive}), give an MDS image whose intrinsic dimension is three
+(embedding dimension six: three circles, two coordinates each).
+\end{proof}
+
+\begin{proposition}[Metric signature and light cone]\label{prop:signature}
+The model carries signature $(-,+,+,+)$, with a non-trivial light-cone structure
+$ds^2=-dt^2+d_{\text{space}}^2$ in which constant-time slices are everywhere spacelike.
+\end{proposition}
+
+\begin{proof}
+The covering coordinate contributes one negative (timelike) eigenvalue; the spatial MDS
+contributes positive (spacelike) eigenvalues. Sampling pairs of points yields both
+timelike ($ds^2<0$) and spacelike ($ds^2>0$) separations, so the light cone is
+non-degenerate; at fixed $t$ one has $ds^2=d_{\text{space}}^2\ge0$, so simultaneity slices
+are spacelike (notebook~18, part~b). Causal order along $t$ is transitive by
+Proposition~\ref{prop:causal}.
+\end{proof}
+
+% ======================================================================
+\section{Emergence of continuous $SO(3)$ symmetry}\label{sec:so3}
+\established\ (notebooks 19, 20)
+
+The discrete construction of $\Tcirc^{3}$ has, as exact isometries, only translations and
+the discrete permutation of the three axes; the full continuous rotation group is not an
+isometry of the discrete model. We show that continuous $SO(3)$ symmetry nonetheless
+emerges at the metric level in the continuum limit, with anisotropy relegated to higher
+order.
+
+\begin{theorem}[Metric-level rotational invariance]\label{thm:so3}
+Expanding the additive distance kernel for small angular separation $\Delta\varphi$ gives
+\begin{equation}
+\sum_{c=1}^{3}\dent(\Delta\varphi_c)^2
+= \text{const} + 2\,|\Delta\varphi|^2
++ \tfrac{4}{3}\sum_{c}\Delta\varphi_c^{4} + O(|\Delta\varphi|^{6}),
+\label{eq:expansion}
+\end{equation}
+whose leading non-constant term $2|\Delta\varphi|^2$ is spherically symmetric. Hence the
+emergent metric is continuously $SO(3)$ invariant, and rotational symmetry breaking first
+appears at order $O(|\Delta\varphi|^4)$ as a cubic ($\sum_c\Delta\varphi_c^4$) anisotropy.
+\end{theorem}
+
+\begin{proof}
+The single-axis kernel admits the small-angle expansion
+$-\log(|\cos2\varphi|/(2N)) = \log(2N) + 2\varphi^2 + \tfrac{4}{3}\varphi^4 + O(\varphi^6)$.
+Summing over the three axes gives~\eqref{eq:expansion}. The quadratic term is
+$2\sum_c\Delta\varphi_c^2=2|\Delta\varphi|^2$, manifestly invariant under $SO(3)$; the
+quartic term $\sum_c\Delta\varphi_c^4$ is invariant only under the cubic (octahedral)
+subgroup. A control experiment confirms that a genuinely spherical kernel shows no
+breaking at any order, isolating the breaking as a property of the additive
+(axis-separable) kernel rather than of the lattice discretisation (notebooks~19--20).
+\end{proof}
+
+\begin{proposition}[Isotropy originates in the given correlation]\label{prop:isotropy}
+The metric-level isotropy of Theorem~\ref{thm:so3} is not circular: it follows from the
+homogeneity of the given correlation~\eqref{eq:bell}, not from a cubic lattice put in by
+hand.
+\end{proposition}
+
+\begin{proof}
+Weighting the axes as $\sum_c w_c\,\dent(\Delta\varphi_c)^2$ gives a metric tensor
+$\operatorname{diag}(2w_c)$, isotropic if and only if the weights are equal. Equal weights
+hold precisely because the same correlation~\eqref{eq:bell} governs every measurement
+direction (homogeneity of the given); were the correlation direction-dependent, the metric
+would be anisotropic---so the statement is falsifiable, not tautological. The orthogonality
+of the axes is a coordinate (gauge) choice with no effect on invariants, while the
+\emph{number} of axes (three) is an external input, addressed in \S\ref{sec:dim}
+(notebook~20, \S20.6, three-layer separation).
+\end{proof}
+
+% ======================================================================
+\section{The spatial dimension is an external input}\label{sec:dim}
+\established\ (notebooks 15, 17, 21)
+
+The one ingredient the framework does not supply is the spatial dimension itself.
+
+\begin{theorem}[Dimension three is not derivable]\label{thm:dim}
+The number of independent settings $p=4$ (equivalently, spatial dimension three) is not
+determined within the given correlation~\eqref{eq:bell} together with the standard-part
+measurement theory: no condition internal to the framework singles out $p=4$.
+\end{theorem}
+
+\begin{proof}
+The correlation~\eqref{eq:bell} carries the information of a single relative angle
+(rank-two, Lemma~\ref{lem:rank2}); the number of independent settings $p$ is the choice of
+how many circles to take in direct product, which does not appear in the correlation
+function. Each value $p=1,2,3,\dots$ yields an internally consistent torus $\Tcirc^{p}$ of
+intrinsic dimension $p$, with none singled out (notebook~15). The standard-part map places
+no bound on $p$ either (Part~II, Rmk.~\ref{II-rem:st-limits}). Hence $p=4$ enters only as an
+external input---physically, the number of independent measurement axes of real space
+(notebook~17).
+\end{proof}
+
+\begin{remark}[Dimension is orthogonal to $\cos2\theta$]\label{rem:orthogonal}
+In the stage-2 climbing map (Part~II, \S\ref{II-sec:climb}) the dimension appears at no stage
+of the ascent to $\cos2\theta$: the latter closes within a single relative-angle scalar.
+Dimension three is therefore not \emph{upstream} of $\cos2\theta$ but an \emph{independent}
+axis, contrary to a reading in which spin-$1/2$ correlations would fix $D{=}4$
+(cf.\ \S\ref{sec:related}); the origin of dimension three remains open (notebook~21,
+\S\S21.5--21.6).
+\end{remark}
+
+% ======================================================================
+\section{Summary and open problems}\label{sec:summary}
+We have taken the experimentally established Bell correlation~\eqref{eq:bell} as a first
+principle and shown: (i) an analytic no-go (Theorem~\ref{thm:nogo})---the bare framework
+yields neither non-compactness nor a single time; (ii) that a single topological
+principle, Covering~II, supplies a single non-compact time
+(Propositions~\ref{prop:time}--\ref{prop:causal}) by breaking only premise P3; (iii) the
+minimal model $\RR\times\Tcirc^{3}$ with signature $(-,+,+,+)$ and a non-trivial light cone
+(\S\ref{sec:rxt3}); (iv) emergence of continuous $SO(3)$ symmetry at the metric level, the
+isotropy traceable to the homogeneity of the given correlation
+(\S\ref{sec:so3}); and (v) that spatial dimension three is an external input
+(Theorem~\ref{thm:dim}), independent of $\cos2\theta$.
+
+Three problems remain open. First, whether the quantum-correlation postulate (A2 of
+Part~II, \S\ref{II-sec:climb}) can be obtained from a more minimal information-theoretic
+principle. Second, the upstream origin of spatial dimension three, now known to be
+independent of $\cos2\theta$. Third (Part~II), the mass-gap argument is established only as
+positivity and only under hypothesis~(H1).
+
+% ======================================================================
+\begin{thebibliography}{9}
+\bibitem{freedman-clauser} S. J. Freedman and J. F. Clauser, \emph{Experimental test of local hidden-variable theories}, Phys. Rev. Lett. \textbf{28}, 938 (1972).
+\bibitem{aspect1982} A. Aspect, P. Grangier, and G. Roger, \emph{Experimental realization of Einstein--Podolsky--Rosen--Bohm Gedankenexperiment: a new violation of Bell's inequalities}, Phys. Rev. Lett. \textbf{49}, 91 (1982).
+\bibitem{aspect1982tv} A. Aspect, J. Dalibard, and G. Roger, \emph{Experimental test of Bell's inequalities using time-varying analyzers}, Phys. Rev. Lett. \textbf{49}, 1804 (1982).
+\bibitem{weihs-zeilinger} G. Weihs, T. Jennewein, C. Simon, H. Weinfurter, and A. Zeilinger, \emph{Violation of Bell's inequality under strict Einstein locality conditions}, Phys. Rev. Lett. \textbf{81}, 5039 (1998).
+\bibitem{vanraamsdonk} M. Van Raamsdonk, \emph{Building up spacetime with quantum entanglement}, Gen. Rel. Grav. \textbf{42}, 2323 (2010).
+\bibitem{swingle} B. Swingle, \emph{Entanglement renormalization and holography}, Phys. Rev. D \textbf{86}, 065007 (2012).
+\bibitem{jacobson} T. Jacobson, \emph{Thermodynamics of spacetime: the Einstein equation of state}, Phys. Rev. Lett. \textbf{75}, 1260 (1995).
+\bibitem{milburn} G. J. Milburn, \emph{Spacetime events from the inside out}, arXiv:2503.08715 (2025).
+\bibitem{karlsson} A. Karlsson, \emph{Space-time emergence from individual interactions}, arXiv:1806.05710 (2018).
+\end{thebibliography}
+
+\end{document}

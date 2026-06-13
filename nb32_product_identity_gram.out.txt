@@ -1,0 +1,32 @@
+================================================================
+E-18  product identity  <->  Gram invariants   (nb32)
+================================================================
+
+-- General Gram identities (hold for ALL correlation triples) --
+(II)  prod(adjG)_kk = B01B02B12 + (1-abc)detG: residual = 0
+(II') 1 - E_ab E_bc E_ac = (e2 - detG)/2:      residual = 0
+(III) Jacobi  A_iA_j - B_ij^2 - detG:          residuals = 0 0 0
+
+-- Circle identities (hold on the rank-two boundary detG=0) --
+      det G on the circle:                      0
+[base] F1F2F3F4 = -4 prod(1-E^2) on circle:    residual = 0
+(I)   F1F2F3F4 = -4 prod_k (adjG)_kk on circle: residual = 0
+      prod(1-E^2) - B01B02B12 on circle:        residual = 0
+
+All symbolic identities hold exactly.
+
+Numerical check on the circle (delta_ac = delta_ab + delta_bc):
+ alpha  beta        detG     prod(1-E^2)     B01B02B12    -4*Bprod    F1F2F3F4
+  0.50  0.90    8.33e-17        0.075356      0.075356   -0.301425   -0.301425
+  1.20  0.30    0.00e+00        0.002897      0.002897   -0.011587   -0.011587
+  2.00  1.10    0.00e+00        0.002585      0.002585   -0.010339   -0.010339
+  0.37  1.51    0.00e+00        0.002248      0.002248   -0.008993   -0.008993
+
+Interior check (det G != 0): identity (II) with correction term
+  E=(+0.20,+0.30,+0.10)  detG=+0.8720  prod(1-E^2)=+0.86486  B01B02B12+corr=+0.86486  match=True
+  E=(+0.50,-0.40,+0.25)  detG=+0.4275  prod(1-E^2)=+0.59062  B01B02B12+corr=+0.59063  match=True
+  E=(-0.10,+0.60,-0.30)  detG=+0.5760  prod(1-E^2)=+0.57658  B01B02B12+corr=+0.57658  match=True
+
+Done.  E-18 closed: the product-identity RHS is -4 times the
+product of the diagonal cofactors of G, correcting by a det G term
+that vanishes on the rank-two boundary.

@@ -1,0 +1,29 @@
+==================================================================
+Inverse problem: minimal zeros  ->  cos 2 delta   (nb33)
+==================================================================
+
+(1) det G = 0  =>  E_ac = [a*c - sqrt((a - 1)*(a + 1)*(c - 1)*(c + 1)), a*c + sqrt((a - 1)*(a + 1)*(c - 1)*(c + 1))]
+    angle-addition identity residual: 0
+    => the closure circle is the MINUS branch
+       E_ac = E_ab E_bc - sqrt((1-E_ab^2)(1-E_bc^2)).
+    (the PLUS branch is anti-closure, delta_ac = delta_ab - delta_bc)
+
+(2) det G for g(t)=cos(omega t): 0  -> rank<=2 for all settings: True
+
+(3) d(det G)/d(eps)|_0 is not identically zero; sample value = -4/5
+    => adding a higher harmonic violates the rank-2 (minimal) zero.
+
+(4) det G with E=cos(omega*difference): 0
+    delta_ac=(omega/2)(u+w)=delta_ab+delta_bc  -> closure FORCED.
+
+Uniqueness (finite Bochner/Schoenberg, not new mathematics):
+  rank-2 stationary PSD kernel admits unit-norm feature map
+  phi(t)=(cos f(t), sin f(t)); stationarity of g(s-t)=cos(f(s)-f(t))
+  forces f(s)-f(t) to depend only on s-t, hence f'(s)=f'(t) for all
+  s,t, so f is affine, f(t)=omega t+const, giving g(t)=cos(omega t).
+  Minimality excludes rank<=1 (g=const, the |E|=1 degenerate case).
+
+Done.  Inverse direction established: the cosine correlation and
+its additive angle-closure are consequences of a single mandated
+rank-2 zero plus stationarity/minimality -- the finite analogue of
+deriving the string amplitude from ultrasoftness + minimal zeros.

@@ -1,0 +1,31 @@
+==================================================================
+NSA bridge (exploratory): minimal zero  =?  st truncation  (nb35)
+==================================================================
+
+(1) graded correlation g(t) = a0 + sum_k eps^k a_k cos(w_k t)
+    st-readout grade n=0:  a0
+    st-readout grade n=1:  a1*cos(t*w1)
+    st-readout grade n=2:  a2*cos(t*w2)
+    st-readout grade n=3:  a3*cos(t*w3)
+    => each grade yields exactly ONE mode (cf. one rank unit/mode).
+
+(2) rank is invariant under permuting the mode labels:
+    freq order (1.3, 2.9, 5.1): rank = 6
+    freq order (1.3, 5.1, 2.9): rank = 6
+    freq order (2.9, 1.3, 5.1): rank = 6
+    => omega_k -> grade-k needs an EXTERNAL ordering principle.
+
+(3) st(eps)=0 so eps carries no numeric content; the grade is an
+    ordinal label and amplitudes a_k carry the physics.  This is
+    distinct from the sealed meaning-B (eps as a physical scale),
+    so the bridge does not re-enter the sealed region.
+
+Status: hypothesis closes up to ONE external input (mode ordering).
+Open for reconciliation with body notes: does the body's integer
+eps-grade supply that ordering?  If so, E-19 upgrades from shared
+vocabulary to the identification  minimal zero = standard-part cut.
+
+TODO (post-upload): load body NSA notes (M(f)=st(f/eps^n),
+eps^2 != 0 bracket, Nb42/43/52) and check whether the integer grade
+matches ordering (a) freq magnitude, (b) energy/dynamical, or
+(c) order-of-appearance. Confirm no collision with Nb52 failures.

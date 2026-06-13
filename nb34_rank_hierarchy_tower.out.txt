@@ -1,0 +1,43 @@
+==================================================================
+rank-(n-1) hierarchy and the harmonic tower   (nb34)
+==================================================================
+
+(1) single cosine g(t)=cos(t): rank is 2 for every n
+    n=3: rank(G_n) = 2
+    n=4: rank(G_n) = 2
+    n=5: rank(G_n) = 2
+    n=6: rank(G_n) = 2
+    n=7: rank(G_n) = 2
+
+(2) sum of K distinct cosines: rank(G_n) = 2K
+    K=1, n=3: rank = 2  (expect 2)
+    K=2, n=5: rank = 4  (expect 4)
+    K=3, n=7: rank = 6  (expect 6)
+    K=4, n=9: rank = 8  (expect 8)
+
+(3) g = a0 + sum cosines: rank = 2K + [a0 != 0]
+    K=0, a0=0.0: rank = 0  (2*0 = 0)
+    K=0, a0=0.2: rank = 1  (2*0+1 = 1)
+    K=1, a0=0.0: rank = 2  (2*1 = 2)
+    K=1, a0=0.2: rank = 3  (2*1+1 = 3)
+    K=2, a0=0.0: rank = 4  (2*2 = 4)
+    K=2, a0=0.2: rank = 5  (2*2+1 = 5)
+    K=3, a0=0.0: rank = 6  (2*3 = 6)
+    K=3, a0=0.2: rank = 7  (2*3+1 = 7)
+
+(4) tower of rigidity (feature map into R^{n-1}):
+    r=2, n=3: feature-Gram rank = 2 (=r); order-3 slot rigidly fixed.
+    r=4, n=5: feature-Gram rank = 4 (=r); order-5 slot rigidly fixed.
+    r=6, n=7: feature-Gram rank = 6 (=r); order-7 slot rigidly fixed.
+
+Summary of the tower:
+  level n=3 (rank 2): 1 harmonic   -> g=cos(w t)   [the circle, nb33]
+  level n=5 (rank 4): 2 harmonics  -> 2-frequency kernel
+  level n=7 (rank 6): 3 harmonics  -> 3-frequency kernel
+  general odd n: (n-1)/2 harmonics; even n: add a constant mode.
+  rank-(n-1) <=> sparsest spectrum with an n-setting rank deficiency
+            <=> order-n correlation slot is the first to vanish.
+
+Done.  The rank-2 / no-3-point-slot result is level one of a graded
+tower; raising n adds harmonic modes one rank-unit at a time, the
+finite analogue of the mandated-zero tower of the string construction.

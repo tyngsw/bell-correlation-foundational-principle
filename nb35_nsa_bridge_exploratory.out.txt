@@ -21,11 +21,12 @@ NSA bridge (exploratory): minimal zero  =?  st truncation  (nb35)
     so the bridge does not re-enter the sealed region.
 
 Status: hypothesis closes up to ONE external input (mode ordering).
-Open for reconciliation with body notes: does the body's integer
-eps-grade supply that ordering?  If so, E-19 upgrades from shared
-vocabulary to the identification  minimal zero = standard-part cut.
+RESOLVED in nb36: the body's infinitesimal order ord(f) supplies
+that ordering (integer ord = eps-power carrying each mode), so the
+bridge closes CONDITIONALLY on the body's ord-assignment of modes.
 
-TODO (post-upload): load body NSA notes (M(f)=st(f/eps^n),
-eps^2 != 0 bracket, Nb42/43/52) and check whether the integer grade
-matches ordering (a) freq magnitude, (b) energy/dynamical, or
-(c) order-of-appearance. Confirm no collision with Nb52 failures.
+NOTE: the body NSA definitions live in math_paper.tex (a separate
+project file), NOT in this project's nb1-35. An earlier draft of
+this TODO referenced body 'nb42/43/52' to be uploaded; those nb
+files do not exist in this project. See nb36 for the reconstruction
+from math_paper.tex and the bridge closure.

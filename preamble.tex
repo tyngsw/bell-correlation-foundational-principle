@@ -1,0 +1,136 @@
+% =====================================================================
+%  preamble.tex  —  shared preamble for Part I (physics.tex) and
+%  Part II (math.tex) of "Bell Correlation as a Foundational Principle".
+%
+%  RECONSTRUCTED minimal preamble.  The original was referenced in
+%  README_build_notes.md but never created as a file; physics/math were
+%  only ever compiled against a throwaway stub.  This file collects the
+%  macros and environments that physics.tex and math.tex are known to use
+%  (from project records): a single shared theorem-numbering scheme across
+%  both parts, the status labels, the NSA symbols (st, ord, *R), and the
+%  categorical chain C_corr -> C_dist -> C_act -> C_eq.
+%
+%  BUILD (per README_build_notes.md), bidirectional xr cross-references:
+%    each of physics.tex / math.tex does \input{preamble} then
+%    \usepackage{xr}\externaldocument[I-]{physics}  (in math.tex)
+%    \usepackage{xr}\externaldocument[II-]{math}     (in physics.tex)
+%    Compile order: bootstrap each once (pdflatex) to make .aux, then
+%    latexmk both twice to converge cross-document refs.
+%
+%  This preamble is deliberately conservative: it defines every macro the
+%  two documents are known to reference, plus the common analysis symbols,
+%  so a missing \input does not break the build.  If physics/math use a
+%  macro not defined here, add it here (this is the single shared source).
+%  files own \documentclass (verified: both real files issue
+%  \documentclass[11pt]{article} on line 1), so this preamble must NOT.
+% =====================================================================
+
+% ---- encoding / fonts / layout ----
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.1in]{geometry}
+
+% ---- math ----
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+\usepackage{bm}
+
+% ---- graphics / tables / misc ----
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---- hyperref last (before xr in the document) ----
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% =====================================================================
+%  Theorem environments — ONE shared numbering scheme across both parts.
+%  All share the counter "thmcounter" numbered within section, so Part I
+%  and Part II do not collide when cross-referenced.
+% =====================================================================
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{principle}[theorem]{Principle}
+
+% =====================================================================
+%  Status labels (README §7: TeX holds only established statements;
+%  these tag the epistemic status inline).
+% =====================================================================
+\newcommand{\established}{\textcolor{green!55!black}{\textsf{[established]}}}
+\newcommand{\conditional}{\textcolor{orange!85!black}{\textsf{[conditional]}}}
+\newcommand{\deferred}{\textcolor{blue!70!black}{\textsf{[deferred]}}}
+\newcommand{\TODO}{\textcolor{red!80!black}{\textsf{[TODO]}}}
+
+% =====================================================================
+%  Nonstandard-analysis symbols.
+%  *R = hyperreals; st = standard-part map; ord = infinitesimal order;
+%  fin = finite hyperreals. eps is the fixed positive infinitesimal
+%  lattice spacing (with eps^2 > 0 still infinitesimal).
+% =====================================================================
+\newcommand{\stR}{{}^{*}\mathbb{R}}        % hyperreals
+\newcommand{\stN}{{}^{*}\mathbb{N}}        % hypernaturals
+\DeclareMathOperator{\st}{st}              % standard-part map
+\DeclareMathOperator{\ord}{ord}            % infinitesimal order
+\DeclareMathOperator{\fin}{fin}            % finite hyperreals
+\newcommand{\eps}{\varepsilon}
+
+% measurement map  M(f) = st( f / eps^{ord f} )
+\newcommand{\Meas}{\mathcal{M}}
+
+% =====================================================================
+%  Categorical chain  C_corr -> C_dist -> C_act -> C_eq.
+% =====================================================================
+\newcommand{\Ccorr}{\mathcal{C}_{\mathrm{corr}}}
+\newcommand{\Cdist}{\mathcal{C}_{\mathrm{dist}}}
+\newcommand{\Cact}{\mathcal{C}_{\mathrm{act}}}
+\newcommand{\Ceq}{\mathcal{C}_{\mathrm{eq}}}
+
+% =====================================================================
+%  Common shorthands used across the two parts.
+% =====================================================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\corr}{C}                      % correlation C(theta) = -cos theta
+\newcommand{\dist}{D}                      % relational distance D = -log|C|
+\newcommand{\elliptope}{\mathcal{E}}
+\newcommand{\Gram}{G}
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% Bell-framework specifics: half-angle delta, Boole quantities F_eps, the
+% window depth m = min_eps F_eps.
+\newcommand{\Fbool}{F}
+\newcommand{\windowdepth}{m}
+
+% =====================================================================
+%  Macros required by the real physics.tex / math.tex (verified by macro
+%  extraction). Meanings inferred from usage context.
+% =====================================================================
+\newcommand{\RR}{\mathbb{R}}               % reals (used as \RR)
+\newcommand{\ZZ}{\mathbb{Z}}               % integers (Z = pi_1(S^1))
+\newcommand{\Cmat}{C}                       % correlation matrix / value, used as |\Cmat|
+\newcommand{\dent}{d}                       % relational distance d=-log|C|
+\newcommand{\Tcirc}{\mathbb{T}}            % torus; used as \Tcirc^{3}, \Tcirc^{p}
+\newcommand{\Scirc}{\mathbb{S}}            % circle S^1; Z \cong pi_1(\Scirc)
+\newcommand{\LamQCD}{\Lambda_{\mathrm{QCD}}}% QCD scale
+\newcommand{\Eang}{E}                       % E_ang: correlation E(theta) as a function of angle; \Eang(theta)=cos 2theta/(2N)
+
+% end of preamble.tex

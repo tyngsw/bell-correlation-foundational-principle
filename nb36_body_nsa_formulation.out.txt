@@ -1,0 +1,34 @@
+==================================================================
+Body NSA formulation + bridge to the tower   (nb36)
+==================================================================
+
+Lemma (orders), reproduced:
+  (i)  ord(C)=ord(-cos theta) = 0;  M(C) = -cos(theta)
+  (iii) ord(lambda_1 ~ c0 eps^2) = 2;  M = c0
+
+ord ranks the graded modes (answers nb35's open question):
+  ord(constant c0) = 0;  M = c0
+  ord(c1 eps cos(w0 t)) = 1;  M = c1*cos(t*w0)
+  ord(c2 eps^2 cos(w1 t)) = 2;  M = c2*cos(t*w1)
+  => integer ord = the external ordering nb35 required.
+
+Measurement reads out one mode per order from
+  g(t) = c0 + c1 eps cos(w0 t) + c2 eps^2 cos(w1 t):
+  order 0: M = c0
+  order 1: M = c1*cos(t*w0)
+  order 2: M = c2*cos(t*w1)
+
+Base-level reconciliation of the two kernels:
+  paper kernel  E = cos(2 delta)   -> ord = 0
+  body kernel   C = -cos(theta)    -> ord = 0
+  both single-harmonic rank-2 kernels; delta=theta/2 + sign.
+
+Status: bridge CLOSES CONDITIONALLY on the body's ord-assignment
+of modes (a modelling choice, not forced by rank). Given it,
+minimal-zero cutoff = standard-part truncation. No unconditional
+theorem is claimed; no string content; eps stays a formal ordinal
+grade (clear of sealed meaning-B).
+
+NOTE: the body definitions live in math_paper.tex (separate file),
+not in this project's nb1-35. nb35's TODO to 'await body nb42/43/52'
+referenced files that do not exist; superseded by this nb36.

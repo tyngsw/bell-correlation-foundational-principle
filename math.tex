@@ -36,7 +36,7 @@ lineage; the novelty is its use as the \emph{universal model of Bell measurement
 the correlation-to-geometry construction, and the observation (\S\ref{sec:st}) that $\st$
 constrains neither the spatial dimension nor the topology.
 
-On the relativistic-causality side, Finberg~\cite{finberg} proves, within locally
+On the relativistic-causality side, Finberg~\cite{finberg} argues, within locally
 covariant AQFT, that Bell local causality is incompatible with diffeomorphism
 covariance---any screening-off completion requires preferred foliations or non-covariant
 beables. That result \emph{assumes} spacetime and shows Bell correlations resist a
@@ -83,6 +83,39 @@ counterpart of the external-input status of dimension three established in Part~
 \S\ref{I-sec:dim}.
 \end{remark}
 
+\begin{remark}[$\st$ is algebraically neutral]\label{rem:st-algebra}
+The standard-part map likewise constrains no algebraic structure of the observables. For
+limited-hyperreal-valued operators on a hyperfinite-dimensional ${}^{*}$Hilbert space (in the
+sense of~\cite{albeverio,yamashita}), $\st$ acts entrywise and commutes with products and
+commutators, $\st([A,B])=[\st A,\st B]$; a noncommuting pair remains noncommuting after $\st$
+and a commuting pair remains commuting (notebook~33, \S33.1, verified symbolically with an
+infinitesimal perturbation). Thus $\st$ neither creates nor destroys noncommutativity: just as
+it fixes neither dimension nor topology (Rmk.~\ref{rem:st-limits}), it fixes no commutation
+relations. The projective/noncommutative structure of measurement therefore lies neither
+downstream nor upstream of $\st$, but is an independent datum (\S\ref{sec:qcorr}).
+\end{remark}
+
+\begin{remark}[$\st$ grades modes but does not order them]\label{rem:st-ordering}
+A third structure lies upstream of the graded measurement, surfacing when the correlation
+is resolved into spectral modes. Write a stationary correlation in spectral form with each
+mode carried at a distinct infinitesimal order,
+$\Cmat(t)=c_0+\sum_{k\ge1}\varepsilon^{k}c_k\cos(\omega_k t)$; then the graded
+measurement~\eqref{eq:graded} at order $k$ returns exactly the $k$-th mode, so $M$ reads out
+one mode per order and $\operatorname{ord}$ supplies an \emph{integer} ordering of the modes.
+The rank of the correlation, however, only \emph{counts} modes: it is invariant under
+relabelling which frequency is called mode~$1,2,\dots$ (notebooks~35--36, verified
+numerically). Hence the assignment of a given physical quantity to a given order---the datum
+that turns the mode count into an ordered tower---is not fixed by $\st$ or by the rank; it is
+a modelling input. Just as $\st$ fixes neither dimension nor topology
+(Rmk.~\ref{rem:st-limits}) nor the commutation relations (Rmk.~\ref{rem:st-algebra}), it does
+not fix the mode ordering: the order assignment is an external input. This is the
+measurement-side locus of the conditional bridge between the rank-two rigidity of
+\S\ref{sec:nophase} and the minimal-zero construction of the companion
+paper~\cite{rank2paper} (the identification ``minimal zero $=$ graded standard part'' holds
+\emph{given} the order assignment, not unconditionally), and it assigns $\varepsilon$ no
+numeric scale, consistent with the ordinal role of $\operatorname{ord}$ in~\eqref{eq:graded}.
+\end{remark}
+
 % ======================================================================
 \section{Spectral recovery of geometry (MDS)}\label{sec:mds}
 \established\ (notebooks 01, 04, 16, 18)
@@ -124,6 +157,92 @@ seventh, identifying intrinsic dimension three. Computing the principal angles b
 two-dimensional subspaces of distinct axes yields zero overlap, confirming orthogonality
 (notebook~18, part~a).
 \end{proof}
+
+% ======================================================================
+\section{No phase transition: rank-two rigidity}\label{sec:nophase}
+\established\ (notebook 20b; supersedes the inconclusive notebook 20)
+
+A natural question is whether the emergent geometry undergoes a phase transition---a
+geometrogenesis---as some control parameter varies, in the spirit of emergent-geometry
+studies across quantum phases~\cite{emergentdist2025,persistenthom}. We answer in the
+negative for the given correlation, and locate the reason in the rigidity of its rank.
+
+\begin{proposition}[Rank-two rigidity]\label{prop:nophase}
+Built coordinate-free from $\Cmat_{ij}=\cos2(\theta_i-\theta_j)/(2N)$ via
+$\dent=-\log|\Cmat|$ and MDS, the correlation matrix $\Cmat$ has rank two (the circle of
+Part~I, Lemma~\ref{I-lem:bounded}) independently of $N$, of the number of settings $L$,
+and in the continuum limit $\varepsilon\to0$. Consequently no order parameter exhibits
+non-analytic behaviour: there is no phase transition.
+\end{proposition}
+
+\begin{proof}
+On a near-standard window $|\Delta\theta|<\pi/4$ the distances are finite and the MDS is
+well defined; the eigenvalues of $\Cmat$ show a constant rank two with $\lambda_3/\lambda_1
+\to0$ as $L\to\infty$ (notebook~20b, verified to $\sim10^{-16}$). The order-parameter
+candidates (largest MDS eigenvalue, spectral gap, effective dimension) vary smoothly as the
+window approaches the zero $\Delta\theta=\pi/4$; no jump occurs. The earlier notebook~20
+reported ``no transition'' for a different and flawed reason---it assumed lattice
+coordinates and an exponential kernel $e^{-d/\xi}$ rather than the given $\cos2\theta$, so
+its scaling law was a tautology in which $\xi$ was a mere overall factor. The present
+result is coordinate-free and rests on the structural rigidity of the rank, not on a
+tautology. The zeros of $\cos2\theta$ ($\Delta\theta=\pi/4+n\pi/2$, where $\Cmat=0$ and
+$\dent=\infty$) produce excluded pairs---a non-standard, measure-zero set excised by the
+standard part (Part~II analogue of the exclusion in \S\ref{sec:st})---which mark the edge
+of the near-standard window, not a phase boundary. NSA: rank two is an internal property
+preserved under $\st$ across the hyperfinite refinement.
+\end{proof}
+
+\begin{remark}[Relation to mutual-information emergent distance]\label{rem:nophase}
+The mutual-information construction $d_E\propto1/\sqrt I$
+of~\cite{emergentdist2025,persistenthom} ties the \emph{metricity} of the emergent distance
+to the decay law of the correlation: a power law (critical regime, no characteristic
+length) gives a valid metric, exponential decay (gapped regime) violates the triangle
+inequality. The given $\cos2\theta$ neither decays nor has a characteristic length; in that
+classification it sits on the metric (critical-like) side, and indeed yields the stable
+rank-two geometry above. There is no control parameter---no analogue of the XXZ
+anisotropy---to separate phases, so frameworks that read spacetime emergence as a phase
+transition (e.g.\ group-field-theory condensation) have no point of application here. This
+is a clean difference of setting, not a disagreement of result.
+\end{remark}
+
+\begin{remark}[The rigidity as level one of a graded tower]\label{rem:tower}
+\conditional\ (companion rank-two paper, \S5.5--5.6; notebooks 34--36)
+The rank-two rigidity of Prop.~\ref{prop:nophase} is the first level of a
+graded structure analysed in the companion paper on the rank-two edge of
+the correlation elliptope~\cite{rank2paper}. There the inverse question is
+posed in the manner of the amplitudes result of Cheung et
+al.~\cite{cheung2025}: a stationary correlation kernel whose every
+$3\times3$ Gram matrix is rank-deficient (the mandated zero) and is of rank
+\emph{exactly} two (minimality), together with continuity, forces
+$\Cmat(t)=\cos(\omega t)$; raising the number of settings $L$ and demanding
+rank exactly $L-1$ grades this into a tower, with
+$\operatorname{rank}=2K+[\text{constant mode}]$ for $K$ spectral modes, so
+that rank $(L-1)$ leaves no room for an independent order-$L$ correlation.
+The rank-two case here is level one: a single harmonic, no room for an
+independent three-point term. This is a structural---not dynamical---reason
+for the absence of a phase transition: a rank-two stationary kernel cannot
+cross to a qualitatively different regime without leaving the rank-two
+locus.
+\end{remark}
+
+\begin{remark}[Minimal zero as a graded standard part]\label{rem:tower-nsa}
+\conditional\ (notebooks 35--36)
+The tower meshes with the graded measurement of \S\ref{sec:st}. Writing a
+correlation in spectral form with each mode carried at a distinct
+infinitesimal order, $\Cmat(t)=c_0+\sum_k\varepsilon^{k}c_k\cos(\omega_k t)$,
+the graded measurement~\eqref{eq:graded} at order $k$ returns exactly the
+$k$-th mode, $M$ reading out one mode per order. The minimal-zero cutoff
+that fixes the rank then coincides with the standard-part truncation that
+discards orders above the measured one: \emph{minimal zero $=$ graded
+standard part}, with $\operatorname{ord}$ supplying the integer ordering of
+modes that the rank alone does not (rank counts modes but is blind to their
+labelling). The identification is conditional on the modelling choice of
+which quantity sits at which order---it is not forced by rank---and assigns
+$\varepsilon$ no numeric scale, consistent with the ordinal role of
+$\operatorname{ord}$ in \eqref{eq:graded} and with Rmk.~\ref{rem:st-limits}.
+No string-theoretic content is imported; the unique output is the Bell
+correlation $\cos2\theta$, not an amplitude.
+\end{remark}
 
 % ======================================================================
 \section{The transfer operator and the mass gap}\label{sec:gap}
@@ -189,6 +308,162 @@ correlation rather than its postulation---requires further work and is deferred 
 notebooks. \deferred
 
 % ======================================================================
+\section{The quantum correlation: upstream analysis of the Tsirelson bound}\label{sec:qcorr}
+\established\ (notebooks 30--33; foundational layer in \texorpdfstring{${}^{*}\RR$}{*R})
+
+The climbing map of \S\ref{sec:climb} reaches $\cos2\theta$ through postulate A2, the
+saturation of the Tsirelson bound $2\sqrt2$. We analyse here how much of A2 is itself derived
+from the given correlation and how much must be posited, working throughout in nonstandard
+analysis: the saturation \emph{value} is asserted on an internal set (the attainment of a
+maximum being an internal, hyperfinite statement, not a standard-compactness one), while the
+algebraic identities below are first-order and rise to ${}^{*}\RR$ by transfer.
+
+\begin{proposition}[Saturation quality is on-the-given]\label{prop:qual}
+The quality that the correlation saturates the quantum bound follows from premises P1--P2
+alone. Equivalently: the exclusivity-graph (Cabello--Severini--Winter) quantum bound for CHSH
+is the Lov\'asz number $\vartheta=2+\sqrt2$ of the eight-event graph, giving standard
+$\text{CHSH}=2\vartheta-4=2\sqrt2$; the orthonormal representation it optimises over requires
+exactly the ``inner product $=$ cosine of the relative angle'' geometry that the feature
+circle of Part~I, Lemma~\ref{I-lem:bounded} already supplies. The normalised value is
+independent of $N$.
+\end{proposition}
+
+\begin{proof}
+The Lov\'asz number is the optimum of an internal semidefinite program over the feasible set
+$\{M\succeq0,\ \operatorname{tr}M=1,\ M_{ij}=0\text{ on edges}\}$~\cite{csw,rabelo}; lifted to ${}^{*}\RR$ this
+feasible set is internal and ${}^{*}$-bounded-closed, so by the internal maximum principle the
+optimum is attained at an internal point whose standard part is the standard optimiser
+(notebook~31, \S31.2; the internality replaces standard compactness). Numerically the optimum
+is $2+\sqrt2$. On the lattice $\theta_i=i\varepsilon$ the normalised feature inner product is
+$\langle\varphi(\theta_i),\varphi(\theta_j)\rangle\cdot2N=\cos2(\theta_i-\theta_j)$, an identity
+holding internally for all $i,j$ (verified symbolically with $\varepsilon$ infinitesimal); this
+is precisely the cosine geometry the orthonormal representation demands. The normalisation
+removes the amplitude, so the value is $N$-independent.
+\end{proof}
+
+\begin{remark}[The bound value is a re-description, not a new principle]\label{rem:redesc}
+Proposition~\ref{prop:qual} is not the discovery of an upstream principle selecting $2\sqrt2$;
+it is the observation that the saturation \emph{quality} was already contained in P1--P2.
+Equivalently, the Lov\'asz $\vartheta$ does not derive the feature angle $2\theta$---it
+\emph{presupposes} the cosine geometry that the given circle provides, so ``$\vartheta\to
+\cos2\theta\to2\sqrt2$'' is a cycle through a shared geometry, not an upstream-to-downstream
+derivation. The value $2\sqrt2$ is the operator-algebraic content of the Tsirelson identity
+$B^2=4I-[A_0,A_1][B_0,B_1]$ with $\|[A_0,A_1]\|\le2$~\cite{tsirelson,landau}, the same fact in graph language.
+\end{remark}
+
+\begin{remark}[The bound value as an extremal consequence of the $\pm1$ spectrum]\label{rem:extremal-2sqrt2}
+The numerical \emph{value} $2\sqrt2$ may be read as the solution of an extremal problem whose
+only input is the two-valued spectrum (B3 of Part~I, Principle~\ref{I-prin:bell}). From the
+identity $B^2=4I-[A_0,A_1][B_0,B_1]$ and the norm bound
+$\|[A_0,A_1]\|\le2\|A_0\|\,\|A_1\|\le2$, valid for any self-adjoint $A_i$ with spectrum in
+$[-1,1]$, one gets $\|B\|^2\le4+\|[A_0,A_1]\|\,\|[B_0,B_1]\|\le8$, hence $\|B\|\le2\sqrt2$,
+attained on a qubit (verified numerically over random dichotomic observables, notebook~39).
+Maximising CHSH subject to the bounded commutator therefore returns $2\sqrt2$ without any
+further quantum postulate: the \emph{value} is downstream of the $\pm1$ spectrum. This does
+\emph{not} weaken Theorem~\ref{thm:noncomm}: what B3 supplies is the commutator norm
+\emph{bound}, whereas the noncommutativity itself---that $[A_0,A_1]\neq0$, the choice to
+represent measurements in an associative ${}^{*}$-algebra at all---remains the independent
+datum the theorem isolates (a commutative representation would give $\|B\|\le2$, and the
+Popescu--Rohrlich box shows non-commutativity is strictly narrower than Bell violation). The
+refinement is only that, once the projective $\pm1$ structure is granted, the bound's numerical
+value is extremal rather than separately posited; cf.\ the analogous selection-by-extremisation
+in the amplitude setting~\cite{cheung2025}.
+\end{remark}
+
+\begin{theorem}[Noncommutativity is an independent datum]\label{thm:noncomm}
+The noncommutativity that fixes the bound value $2\sqrt2$---the projective, exclusive structure
+of measurement---is derived neither from $\cos2\theta$ nor from the standard-part measurement,
+and is therefore an external structural input.
+\end{theorem}
+
+\begin{proof}
+Three exhaustive possibilities are excluded or located. (\emph{$\st$ internal: excluded.}) By
+Rmk.~\ref{rem:st-algebra}, $\st$ commutes with commutators and is algebraically neutral, so
+noncommutativity is neither created nor destroyed by measurement. (\emph{Derived from
+$\cos2\theta$: only halfway.}) By Fine's theorem~\cite{fine}, satisfying all CHSH inequalities is equivalent
+to the existence of a single (commutative) joint distribution; since $\cos2\theta$ gives
+$\text{CHSH}=2\sqrt2>2$, it entails the \emph{absence} of a commutative model. But absence of a
+commutative model does not entail representability by a noncommutative operator algebra: the
+Popescu--Rohrlich box~\cite{pr} ($\text{CHSH}=4$, no-signalling) is neither commutative nor quantum, so
+noncommutativity (the Tsirelson ceiling $2\sqrt2$) is strictly narrower than mere Bell
+violation, and $\cos2\theta$ supplies only the violation. (\emph{Independent datum: located.})
+The bound $\|[A_0,A_1]\|\le2$ presupposes self-adjointness, spectrum in $\{\pm1\}$ (two-valued
+projective measurement, $A^2=I$), and an associative ${}^{*}$-product---three ingredients absent
+from both $\cos2\theta$ and $\st$. Hence noncommutativity is a separate representational datum:
+the choice to represent measurements as self-adjoint elements of an associative ${}^{*}$-algebra
+(notebook~33, \S\S33.2--33.3).
+\end{proof}
+
+\begin{remark}[Necessity is not derivability]\label{rem:nec}
+The step that ``a commutative model is impossible'' (Fine) must not be read as ``noncommutativity
+is derived from the given.'' Proving a necessary condition---that any reproducing model must fail
+to be commutative---does not produce the structure that meets it; the Popescu--Rohrlich box
+witnesses a non-commutative-yet-non-quantum alternative. This is the proof-theoretic core of
+Theorem~\ref{thm:noncomm}: the bound $2\sqrt2$ rests on a datum (the ${}^{*}$-algebra
+representation) that the principle posits rather than derives.
+\end{remark}
+
+% ======================================================================
+\section{Lorentz invariance: a three-layer emergence}\label{sec:lorentz}
+\established\ (notebooks 34--35; foundational layer in \texorpdfstring{${}^{*}\RR$}{*R})
+
+The metric-level $SO(3)$ of Part~I, \S\ref{I-sec:so3} is the spatial rotation group only.
+We analyse whether the full Lorentz group $SO(3,1)$ emerges, and find a three-layer
+structure in which time (the covering coordinate, an ordered $\RR$) and space (the MDS of
+$|\Cmat|$, a metric $\Tcirc^3$) enter on different footings.
+
+\begin{proposition}[Time carries no metric from the static correlation]\label{prop:no-time-metric}
+The covering coordinate is totally ordered but, from the static correlation~\eqref{I-eq:bell}
+alone, carries no metric: $-\log|\Eang(t)|$ is periodic, hence not a monotone time
+distance. A monotone time distance requires a time evolution; if that evolution is a
+one-parameter group $U(\tau)=e^{-iH\tau}$ (Stone), the decay is $e^{-\Gamma\tau}$ and the
+time distance is the linear $\Gamma\tau$.
+\end{proposition}
+
+\begin{theorem}[Three layers of Lorentz emergence]\label{thm:lorentz}
+\begin{enumerate}
+\item[\rm(L1)] \emph{(Time evolution group $\Rightarrow$ Galilei.)} Adjoining the existence
+of a time-evolution group (Stone's $H$) to~\eqref{I-eq:bell} yields the Galilei group:
+absolute time (the total order on the covering $\RR$), $SO(3)$, and \emph{commuting}
+boosts $t'=t,\ x'=x-vt$. Galilean boosts do not mix time and space, so the mismatch
+between the linear time distance and the quadratic spatial distance
+($-\log|\cos2\varphi|\sim2\varphi^2$) does not obstruct closure. This adjunction posits no
+$\hbar$, $c$, or spectrum, and is the minimal admissible dynamical datum.
+\item[\rm(L2)] \emph{(Invariant speed $c$ $\Rightarrow$ local Lorentz.)} Adjoining a
+universal evolution rate, i.e.\ an invariant speed $c$, normalises tangent-space
+coordinates $T=c\,\Delta\tau$, $X=\sqrt2\,\Delta\varphi$ so that $ds^2=-T^2+X^2$ is boost
+invariant and $\mathfrak{so}(3,1)$ closes ($[K_i,K_j]=-\varepsilon_{ijk}J_k$). Local
+Lorentz invariance holds in the tangent space.
+\item[\rm(L3)] \emph{(Spatial decompactification $\Rightarrow$ global Lorentz.)} Global
+boosts are obstructed by the compactness of $\Tcirc^3$ (a hyperbolic orbit leaves any
+fundamental domain); global Lorentz invariance requires decompactifying space
+($\Tcirc^3\to\RR^3$, a spatial analogue of covering~II that breaks premise P2).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(L1) The Galilei algebra closes with $[G_i,G_j]=0$, $[G_i,H]=P_i$, $[J_i,G_j]=\varepsilon
+G_k$; commuting boosts never mix the time and space sectors, so the differing scaling
+dimensions are irrelevant (notebook~35, \S35.1). (L2) In normal coordinates both
+directions are linear; the boost $T'=T\cosh w-X\sinh w$, $X'=-T\sinh w+X\cosh w$ leaves
+$-T^2+X^2$ invariant, and the six generators of $\mathfrak{so}(3,1)$ satisfy the standard
+brackets, verified by matrix computation (notebook~35, \S35.2). (L3) A hyperbolic rotation
+is unbounded, incompatible with the compact $\Tcirc^3$; only $\RR^3$ admits global boosts
+(notebook~35, \S35.3). The invariant speed $c$ is, under stance~X of Part~I,
+Rmk.~\ref{I-rem:c-status}, an external input; under stance~Y it is the empirical datum~(B2).
+\end{proof}
+
+\begin{remark}[The correlation is intrinsically non-relativistic]\label{rem:nonrel}
+Theorem~\ref{thm:lorentz}(L1) shows that $\cos2\theta$ plus the mere existence of dynamics
+yields a \emph{Galilean} (absolute-time, non-relativistic) spacetime. Relativity appears
+only at L2, with the invariant speed $c$; under stance~Y this $c$ is supplied empirically
+by the spacelike separation of the Bell experiment (Part~I, Rmk.~\ref{I-rem:c-status}),
+not derived from the numerical core $\cos2\theta$. The asymmetry between time (order) and
+space (metric) of Part~I, Prop.~\ref{I-prop:sep} is what separates Galilei from Lorentz at
+the level of the symmetry group.
+\end{remark}
+
+% ======================================================================
 \section{Climbing map from a minimal principle}\label{sec:climb}
 \established\ (notebook 21)
 
@@ -210,7 +485,11 @@ inhomogeneous correlations can still violate CHSH, so A1 is a genuine added post
 Among homogeneous correlations, saturating the Tsirelson bound $|S|=2\sqrt2$ singles out
 $E=\cos(\text{relative angle})$, giving A2; the doubling to $\cos2\theta$ is the spin
 projective (two-valued) structure carried by A2. Finally A3 fixes the amplitude $1/(2N)$
-with $N=3$. The CHSH values at each stage are verified numerically (notebook~21).
+with $N=3$. The CHSH values at each stage are verified numerically (notebook~21). The
+internal structure of A2 is dissected in \S\ref{sec:qcorr}: its saturation \emph{quality} is
+on-the-given (Prop.~\ref{prop:qual}), whereas its bound \emph{value} $2\sqrt2$ and the
+underlying noncommutativity are external (Thm.~\ref{thm:noncomm}); A2 is thus not a single
+indivisible postulate but a quality that is derived atop a posited algebraic datum.
 \end{proof}
 
 \begin{remark}[Two independent axes]\label{rem:axes}
@@ -225,16 +504,33 @@ dimension, which must therefore be supplied separately.
 \section{Summary and open problems}\label{sec:math-summary}
 The mathematical backbone comprises: the standard-part measurement theory
 (\S\ref{sec:st}), under which Bell measurement is a single $\st$ operation that
-automatically excludes non-near-standard quantities yet fixes neither dimension nor
-topology; the spectral/MDS recovery of geometry (\S\ref{sec:mds}), giving $\Tcirc^{3}$ with
-orthogonal axes; and the climbing map (\S\ref{sec:climb}), reducing $\cos2\theta$ to the
-three postulates A1--A3. The mass-gap positivity (\S\ref{sec:gap}) and the $SU(3)$ Wilson
-structure (\S\ref{sec:su3}) are conditional, the former on hypothesis~(H1).
+automatically excludes non-near-standard quantities yet fixes neither dimension, topology,
+commutation relations, nor the ordering of spectral modes
+(Rmks.~\ref{rem:st-limits}, \ref{rem:st-algebra}, \ref{rem:st-ordering}); the spectral/MDS
+recovery of geometry (\S\ref{sec:mds}), giving $\Tcirc^{3}$ with orthogonal axes; the
+upstream analysis of the quantum correlation (\S\ref{sec:qcorr}), separating the saturation
+quality (on-the-given, Prop.~\ref{prop:qual}) from the bound value $2\sqrt2$ and the
+noncommutativity that fixes it (external, Thm.~\ref{thm:noncomm}); and the climbing map
+(\S\ref{sec:climb}), reducing $\cos2\theta$ to the postulates A1--A3. The mass-gap positivity
+(\S\ref{sec:gap}) and the $SU(3)$ Wilson structure (\S\ref{sec:su3}) are conditional, the
+former on hypothesis~(H1).
 
-Open problems: whether A2 (quantum correlation) descends from a more minimal
-information-theoretic axiom; the upstream origin of spatial dimension three, independent of
-$\cos2\theta$ (axis~II of Rmk.~\ref{rem:axes}); and the numerical factor $\approx7.5$
-between $\LamQCD$ and the lightest glueball mass.
+The structural question of axis~I---whether the quantum-correlation postulate A2 descends
+from a more minimal principle---is now resolved in outline. The saturation \emph{quality}
+does descend (it is the constant-norm circle of P1--P2 re-described in graph-theoretic terms,
+Prop.~\ref{prop:qual} and Rmk.~\ref{rem:redesc}); the bound \emph{value} $2\sqrt2$ descends
+only partway---given the projective $\pm1$ spectrum (B3) it is the extremum of CHSH under the
+commutator bound $\|[A_0,A_1]\|\le2$ (Rmk.~\ref{rem:extremal-2sqrt2}), but the
+noncommutativity that makes that commutator nonzero in the first place remains an independent
+representational datum (Thm.~\ref{thm:noncomm}). The open problems are therefore the physical
+justification of the external inputs rather than their further reduction: the upstream origin
+of spatial dimension three, independent of $\cos2\theta$ (axis~II of Rmk.~\ref{rem:axes}); the
+origin of the projective/noncommutative measurement structure that sets $2\sqrt2$; the $N=3$
+identification, to be addressed via the $SU(3)$ Wilson action (\S\ref{sec:su3}); the
+order assignment of spectral modes, which the rank leaves undetermined
+(Rmk.~\ref{rem:st-ordering}) and which controls the conditional bridge to the companion
+paper; and the
+numerical factor $\approx7.5$ between $\LamQCD$ and the lightest glueball mass.
 
 % ======================================================================
 \begin{thebibliography}{9}
@@ -243,6 +539,16 @@ between $\LamQCD$ and the lightest glueball mass.
 \bibitem{nsa-qm} \emph{A realistic model for completing quantum mechanics} (nonstandard hyperfinite real axis), arXiv:2104.12701 (2021).
 \bibitem{finberg} J. S. Finberg, \emph{Bell nonlocality as a covariance obstruction in locally covariant quantum field theory}, arXiv:2512.18603 (2025).
 \bibitem{karlsson} A. Karlsson, \emph{Space-time emergence from individual interactions}, arXiv:1806.05710 (2018).
+\bibitem{csw} A. Cabello, S. Severini, and A. Winter, \emph{Graph-theoretic approach to quantum correlations}, Phys. Rev. Lett. \textbf{112}, 040401 (2014).
+\bibitem{rabelo} R. Rabelo, C. Duarte, A. J. L\'opez-Tarrida, M. T. Cunha, and A. Cabello, \emph{Multigraph approach to quantum non-locality}, J. Phys. A \textbf{47}, 424021 (2014).
+\bibitem{tsirelson} B. S. Cirel'son (Tsirelson), \emph{Quantum generalizations of Bell's inequality}, Lett. Math. Phys. \textbf{4}, 93 (1980).
+\bibitem{landau} L. J. Landau, \emph{On the violation of Bell's inequality in quantum theory}, Phys. Lett. A \textbf{120}, 54 (1987).
+\bibitem{fine} A. Fine, \emph{Hidden variables, joint probability, and the Bell inequalities}, Phys. Rev. Lett. \textbf{48}, 291 (1982).
+\bibitem{pr} S. Popescu and D. Rohrlich, \emph{Quantum nonlocality as an axiom}, Found. Phys. \textbf{24}, 379 (1994).
+\bibitem{emergentdist2025} B. Leighton-Trudel, \emph{Emergent distance and metricity of mutual information in 1D quantum chains}, arXiv:2507.09749 (2025).
+\bibitem{persistenthom} B. Olsthoorn, \emph{Persistent homology of quantum entanglement}, Phys. Rev. B \textbf{107}, 115174 (2023); arXiv:2110.10214 (2021).
+\bibitem{rank2paper} \emph{Rank-two rigidity of Bell correlations and the bipartite character of emergent geometry}, companion paper (this project), \S5.5--5.6 (inverse problem, harmonic tower, NSA bridge).
+\bibitem{cheung2025} C. Cheung, G. N. Remmen, F. Sciotti, M. Tarquini, \emph{Strings from almost nothing}, arXiv:2508.09246 (2025).
 \end{thebibliography}
 
 \end{document}
